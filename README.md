@@ -1,10 +1,10 @@
-I wanted to explot making PyTorch models from scratch. 
+I wanted to explore making PyTorch models from scratch. 
 
-Many tutorials ignore tabular data. Or if tabular data is used there are layers of abstraction which I do not find usefull as someone wanted to research various NN architectures as a hobby.
+Many tutorials ignore tabular data or if tabular data is used there are layers of abstraction which I do not find useful as someone wanting to research various NN architectures as a hobby.
 
 This is a reference project that contains bite sized sample scripts.
 
-This most interesting scripts are those which predict y using a polynomial x as an imput.
+This most interesting scripts are those which predict y using a polynomial x as an input.
 
 
 $$ y = x + x^2 + x^3 + e $$
