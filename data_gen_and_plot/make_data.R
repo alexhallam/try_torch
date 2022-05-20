@@ -1,3 +1,6 @@
+# This script makes sample_data.csv
+# You can see a plot of this data in plots/data.jpg
+
 library(tidyverse)
 set.seed(42)
 x <- runif(1000, -10, 10)
@@ -11,5 +14,5 @@ p <- df %>%
     ggplot(aes(y = y, x = x)) +
     geom_point(size = 0.5) +
     theme_minimal()
-ggsave("data.jpg", p, bg = "white")
+ggsave("./data_gen_and_plot/plots/data.jpg", p, bg = "white")
 write_csv(df, "simple_data.csv")
