@@ -50,12 +50,12 @@ class LinearRegressionFeedForwad(nn.Module):
 
 
 input_size = n_features
-hidden_layers1 = 10
+hidden_layers1 = 2
 model = LinearRegressionFeedForwad(input_size, hidden_layers1)
 loss = MSELoss()
-optimizer = torch.optim.SGD(model.parameters(), lr = 0.2)
+optimizer = torch.optim.SGD(model.parameters(), lr = 0.00002)
 # train loop: forward, backward, step, zero
-num_epoch = 10
+num_epoch = 1000
 for epoch in range(num_epoch):
   predicted = model(X_train)
   resid = loss(y_train, predicted)
@@ -69,4 +69,14 @@ for epoch in range(num_epoch):
 predicted = model(X_test).detach().numpy().flatten()
 dict_params = model.state_dict()
 #dict_params
-print(predicted)
+pprint(dict_params)
+
+# just to see what is happening with the hidden layer
+l1_weight = np.array(dict_params.get('l1.weight')).transpose()
+view_l1 = np.dot(X_train, l1_weight)
+print("view L1")
+print(view_l1)
+view_relu = F.relu(torch.from_numpy(view_l1.astype(np.float32)))
+print("view_relu")
+print(view_relu)
+print()
